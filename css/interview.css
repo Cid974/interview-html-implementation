@@ -1,0 +1,836 @@
+body{
+  margin:0;
+}
+
+html{
+  font-size: 25px;
+}
+
+#main{
+  margin-left: auto;
+  margin-right: auto;
+  width: 720px;
+  height: auto;
+}
+
+@media screen and (max-width: 720px) {
+  #main{
+    width: auto;
+  }
+}
+
+#thumbnail{
+  width: 240px;
+  height: 240px;
+}
+
+#name, #address{
+  font-size: 1em;
+  font-weight: 800;
+}
+
+#address{
+  font-weight: normal;
+}
+
+@media screen and (max-width: 466px) {
+  #name, #address{
+    font-size: 0.7em;
+  }
+}
+
+#address{
+  margin-bottom: 15px;
+}
+
+#floors, #rooms, #established{
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 645px) {
+  #floors, #rooms, #established{
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 466px) {
+  #floors, #rooms, #established{
+    font-size: 0.7em;
+  }
+}
+
+#floors{
+  padding-top: 10px;
+  border-top: 1px solid #E1E1E1;
+}
+
+#map{
+  width: 100%;
+  height: 400px;
+}
+
+@media screen and (max-width: 466px) {
+  #map{
+    height: 300px;
+  }
+}
+
+#room_modal{
+  width: 75%;
+}
+
+.topbar{
+  background-color: #FFA409;
+  height: 90px;
+}
+
+@media screen and (max-width: 720px) {
+  .topbar{
+    width: 100%;
+    clear: both;
+  }
+}
+
+.back, .top_text, .share, .like{
+  float: left;
+}
+
+.back{
+  padding-top: 30px;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 550px) {
+  .back{
+    padding: 30px 0px 0px 12px;
+    width: 15%;
+    text-align: left;
+  }
+
+  .back_ic{
+    width: 50%;
+  }
+}
+
+.top_text{
+  color: white;
+  font-size: 1.2em;
+  padding-top: 30px;
+  padding-left: 25px;
+}
+
+@media screen and (max-width: 550px) {
+  .top_text{
+    font-size: 0.8em;
+    text-align: left;
+    margin-top: 35px;
+    padding: 0;
+  }
+}
+
+.share{
+  padding-top: 25px;
+  padding-left: 90px;
+}
+
+@media screen and (max-width: 720px) {
+  .share{
+    padding-left: 30px;
+  }
+}
+
+@media screen and (max-width: 577px) {
+  .share{
+    padding: 30px 0px 0px 0px;
+    width: 15%;
+    text-align: center;
+  }
+
+  .share_ic{
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 382px) {
+  .share{
+    padding: 10px 0px 0px 45px;
+  }
+}
+
+@media screen and (max-width: 352px) {
+  .share{
+    padding: 10px 0px 0px 12px;
+  }
+}
+
+.like{
+  padding-top: 25px;
+  padding-left: 110px;
+}
+
+@media screen and (max-width: 638px) {
+  .like{
+    padding-left: 50px;
+  }
+}
+
+@media screen and (max-width: 577px) {
+  .like{
+    padding: 30px 0px 0px 0px;
+    width: 15%;
+    text-align: center;
+  }
+
+  .like_ic{
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 382px) {
+  .like{
+    padding: 10px 0px 0px 45px;
+  }
+}
+
+@media screen and (max-width: 352px) {
+  .like{
+    padding: 10px 0px 0px 12px;
+  }
+}
+
+.room{
+  height: 730px;
+}
+
+@media screen and (max-width: 720px) {
+  .room{
+    height: auto;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 720px;
+  overflow: scroll;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #F1F1F1;
+  font-size: 1.6em;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 550px) {
+  .close{
+    font-size: 1.2em;
+  }
+}
+
+.close:hover,
+.close:focus {
+  cursor: pointer;
+}
+
+.agent{
+  background-color: #0EC4BF;
+  color: white;
+  height: 80px;
+  position: relative;
+  z-index: 10;
+}
+
+@media screen and (max-width: 720px) {
+  .agent{
+    width: 100%;
+    clear: both;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .agent{
+    height: auto;
+  }
+}
+.agent_picture, .agent_text, .help{
+  float: left;
+}
+
+@media screen and (max-width: 520px) {
+  .agent_picture, .agent_text, .help{
+    float: none;
+  }
+}
+
+.agent_picture{
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 720px) {
+  .agent_picture{
+    text-align: center;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .agent_picture{
+    padding-top: 0;
+    padding-left: 0;
+  }
+}
+
+.agent_text{
+  color: white;
+  font-size: 1.2em;
+  padding-top: 25px;
+  padding-left: 5px;
+}
+
+@media screen and (max-width: 720px) {
+  .agent_text{
+    position: inherit;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .agent_text{
+    padding-left: 0;
+    padding-top: 10px;
+    font-size: 1.1em;
+    text-align: center;
+  }
+}
+
+.help{
+  padding-top: 20px;
+  padding-left: 140px;
+}
+
+@media screen and (max-width: 720px) {
+  .help{
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .help{
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .help{
+    float: none;
+    padding: 0 0 10px 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .agent_ic{
+    width: 30%;
+  }
+
+  .help_ic{
+    width: 8%;
+  }
+}
+
+.desc_section{
+  background: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 720px;
+  padding: 0px 20px 0px 20px;
+  position: relative;
+  z-index: 10;
+  border-bottom: 2px solid #E1E1E1;
+}
+
+.title_desc, .title_room{
+  color: #616161;
+  font-size: 1.4em;
+  margin: 30px 10px 10px 10px;
+}
+
+@media screen and (max-width: 446px) {
+  .title_desc, .title_room{
+    font-size: 1.2em;
+    text-align: center;
+    margin: 20px 10px 10px 10px;
+  }
+}
+
+.title_room{
+  color: black;
+}
+
+.desc_rows{
+    border: 2px solid #E1E1E1;
+    background: white;
+}
+
+.price{
+  width: 55%;
+}
+
+.desc_titles, .table_titles {
+  background: #FAFAFA;
+  font-size: 1em;
+  color: #6A6A6A;
+  text-align: left;
+  padding: 20px 0px 20px 20px;
+}
+
+@media screen and (max-width: 645px) {
+  .desc_titles, .table_titles{
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 466px) {
+  .desc_titles, .table_titles{
+    font-size: 0.7em;
+    padding: 10px 10px 10px 10px;
+  }
+}
+
+.desc_values, .table_values {
+  background: white;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 645px) {
+  .desc_values, .table_values{
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 466px) {
+  .desc_values, .table_values{
+    font-size: 0.6em;
+  }
+}
+
+.desc_values {
+  width: 69%;
+  padding-left: 15px;
+}
+
+.table_titles {
+  padding: 20px 30px 20px 20px;
+}
+
+@media screen and (max-width: 466px) {
+  .desc_values{
+    padding-left: 5px;
+  }
+}
+
+@media screen and (max-width: 466px) {
+  .table_titles{
+    padding: 10px 10px 10px 10px;
+  }
+}
+.table_values {
+  padding-left: 15px;
+  width: 47%;
+}
+
+@media screen and (max-width: 466px) {
+  .table_values{
+    padding-left: 5px;
+  }
+}
+
+.credit{
+  text-align: center;
+  background: white;
+  width: 39%;
+  padding-left: 20px;
+}
+
+.extend_desc{
+  margin: 15px;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 645px) {
+  .extend_desc{
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 466px) {
+  .extend_desc{
+    font-size: 0.7em;
+  }
+}
+
+.description{
+  font-weight: bold;
+}
+
+.building_desc{
+  width: 100%;
+  clear: both;
+}
+
+.building_pic, .building_specs{
+  margin: 15px;
+  float: left;
+}
+
+.building_specs{
+  width: 50%;
+}
+
+@media screen and (max-width: 645px) {
+  .building_pic, .building_specs{
+    float: none;
+    text-align: center;
+  }
+
+  .building_specs{
+    width: auto;
+  }
+}
+
+.map_utils{
+  width: 100%;
+  clear: both;
+}
+
+.map_button, .locate_button{
+  float: left;
+  text-align: center;
+  width: 49%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 466px) {
+  .map_button, .locate_button{
+    font-size: 0.7em;
+  }
+}
+
+.map_button{
+  padding-bottom: 17px;
+  border-right: 1px solid #E1E1E1;
+  padding-top: 21px;
+}
+
+.locate_button{
+  border-left: 1px solid #E1E1E1;
+}
+
+.map_bottom_line{
+  margin: 0px;
+  border: 1px solid #E1E1E1;
+}
+
+.agent_desc{
+  margin: 15px;
+  width: 100%;
+  clear: both;
+}
+
+@media screen and (max-width: 447px) {
+  .agent_desc{
+    margin: 0;
+  }
+}
+
+.agent_profil, .agent_info{
+  float: left;
+  width: 50%;
+}
+
+@media screen and (max-width: 447px) {
+  .agent_profil, .agent_info{
+    float: none;
+  }
+}
+
+.agent_profil{
+  width: 200px;
+  text-align: center;
+  border: 1px solid #A0A0A0;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 447px) {
+  .agent_profil{
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 26%;
+  }
+  .agent_info{
+    float: none;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7em;
+  }
+  .agent_button_pic{
+    width: 20%;
+  }
+}
+
+.title_agent, .text_agent{
+  font-size: 1em;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  font-weight: 800;
+}
+
+.text_agent{
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+.brokerage_title{
+  margin-left: 15px;
+  margin-right: 50px;
+  padding: 5px;
+  font-size: 1em;
+  border-top: 1px solid #E1E1E1;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+@media screen and (max-width: 470px) {
+  .brokerage_title{
+    font-size: 0.7em;
+    text-align: center;
+    margin-right: 15px;
+  }
+}
+
+.brokerage_info{
+  font-size: 0.8em;
+}
+
+@media screen and (max-width: 470px) {
+  .brokerage_info{
+    text-align: center;
+    font-size: 0.6em;
+  }
+}
+
+.agent_button{
+  background: #0EC4BF;
+}
+
+.agent_button_pic{
+  padding: 5px 0px 5px 0px;
+}
+
+.brokerage_title, .brokerage_info{
+  clear: both;
+}
+
+.certification{
+  background: #848484;
+  color: white;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.certif_desc{
+  margin: 20px;
+}
+
+.certif {
+  font-size: 0.8em;
+}
+
+@media screen and (max-width: 560px) {
+  .certif{
+    font-size: 0.7em;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .certif{
+    font-size: 0.6em;
+  }
+}
+
+.contact{
+  margin: 25px;
+}
+
+.wrap_contact{
+  width: 100%;
+  clear: both;
+  margin-bottom: 20px;
+}
+
+.contact_realtor, .phone{
+  float: left;
+  width: 50%;
+}
+
+@media screen and (max-width: 583px) {
+  .contact_realtor, .phone{
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.realtor, .assistant{
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.realtor{
+  font-size: 0.9em;
+  color: #969696;
+}
+
+@media screen and (max-width: 583px) {
+  .realtor, .assistant{
+    font-size: 0.8em;
+  }
+  .realtor{
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .realtor, .assistant{
+    font-size: 0.7em;
+  }
+  .realtor{
+    font-size: 0.7em;
+  }
+}
+
+.number{
+  font-size: 1.1em;
+}
+
+@media screen and (max-width: 583px) {
+  .number{
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .number{
+    font-size: 0.7em;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .number_section{
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 583px) {
+  .number_section{
+    padding-bottom: 10px;
+  }
+}
+
+.agent_icon{
+  width: 12%;
+  vertical-align: text-bottom;
+}
+
+@media screen and (max-width: 583px) {
+  .agent_icon{
+    width: 7%;
+    vertical-align: middle;
+  }
+}
+
+.phone{
+  text-align: right;
+  padding-bottom: 25px;
+}
+
+@media screen and (max-width: 583px) {
+  .phone{
+    text-align: center;
+  }
+  .phone_img{
+    width: 50%;
+  }
+}
+
+a{
+  color: black;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+b{
+  font-weight: 800;
+}
+
+span{
+  white-space: pre-line;
+}
+
+strong{
+  color: #F47300;
+  font-size: 1.7em;
+}
+
+table{
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr, td{
+  padding: 0px;
+}
+
+img{
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+ul{
+  list-style: disc;
+}
+
+@media screen and (max-width: 470px) {
+  ul{
+      list-style-type: none;
+      padding: 0;
+  }
+}
